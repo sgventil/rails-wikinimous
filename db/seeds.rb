@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+puts "Creating Articles"
+puts "."
+puts ".."
+puts "..."
+10.times do |i|
+  puts "Creating Article #{i + 1}"
+  article = Article.new(title: Faker::Fantasy::Tolkien.unique.poem, content: Faker::Lorem.unique.paragraph )
+  article.save!
+  puts "Created #{i + 1} Articles!"
+end
+puts "All done!"
