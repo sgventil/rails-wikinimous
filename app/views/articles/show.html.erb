@@ -1,2 +1,12 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="container" style="width: 800px;">
+  <ul class="list-unstyled my-5">
+    <li>
+      <h2><%= @article.title %></h2>
+        <%= link_to '', edit_article_path(@article), class: 'fa-solid fa-pencil fa-xs', title: 'Edit' %>
+        <%= link_to delete_article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Delete #{@article.title}?"} do %>
+          <i class="fa-regular fa-trash-can fa-xs"></i>
+        <% end %>
+        <p><%= @article.content%></p>
+    </li>
+  </ul>
+</div>
